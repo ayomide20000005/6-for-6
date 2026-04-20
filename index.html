@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 for 6 — CS Department Venue System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <h1 class="logo">6 for 6</h1>
+            <span class="tagline">CS Department Venue System</span>
+        </div>
+        <div class="nav-center">
+            <button class="nav-link active" data-page="dashboard">Dashboard</button>
+            <button class="nav-link" data-page="my-sessions">My Sessions</button>
+            <button class="nav-link" data-page="history">History</button>
+        </div>
+        <div class="nav-right">
+            <button class="theme-toggle" id="themeToggle">Dark Mode</button>
+            <span class="user-name">Dr. Alameen</span>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-container">
+
+        <!-- ===== DASHBOARD PAGE ===== -->
+        <section class="page active" id="page-dashboard">
+            
+            <div class="page-header">
+                <div class="title-group">
+                    <h2>Venue Dashboard</h2>
+                    <p class="subtitle">Computer Science Department</p>
+                </div>
+                <div class="header-actions">
+                    <div class="filter-group">
+                        <select class="filter-select" id="buildingFilter">
+                            <option value="">All Buildings</option>
+                            <option value="main">Main Building</option>
+                            <option value="science">Science Complex</option>
+                            <option value="lab">Computer Lab</option>
+                        </select>
+                        <select class="filter-select" id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="available">Available</option>
+                            <option value="occupied">Occupied</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-value">10</span>
+                    <span class="stat-label">Total Venues</span>
+                </div>
+                <div class="stat-card available">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Available</span>
+                </div>
+                <div class="stat-card occupied">
+                    <span class="stat-value">4</span>
+                    <span class="stat-label">Occupied</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">My Sessions Today</span>
+                </div>
+            </div>
+
+            <!-- Room Grid -->
+            <div class="room-grid">
+                
+                <!-- Available Room -->
+                <div class="room-card available">
+                    <div class="room-header">
+                        <span class="room-name">Alex O</span>
+                        <span class="room-status available">Available</span>
+                    </div>
+                    <div class="room-body">
+                        <p class="room-type">Lecture Theatre</p>
+                        <p class="room-capacity">Capacity: 200</p>
+                        <p class="room-building">Main Building</p>
+                    </div>
+                    <div class="room-footer">
+                        <button class="btn-primary scan-btn" data-room="Alex O">Scan QR to Sign In</button>
+                    </div>
+                </div>
+
+                <!-- Available Room -->
+                <div class="room-card available">
+                    <div class="room-header">
+                        <span class="room-name">Cepep Hall</span>
+                        <span class="room-status available">Available</span>
+                    </div>
+                    <div class="room-body">
+                        <p class="room-type">Lecture Theatre</p>
+                        <p class="room-capacity">Capacity: 150</p>
+                        <p class="room-building">Main Building</p>
+                    </div>
+                    <div class="room-footer">
+                        <button class="btn-primary scan-btn" data-room="Cepep Hall">Scan QR to Sign In</button>
+                    </div>
+                </div>
+
+                <!-- Occupied Room -->
+                <div class="room-card occupied">
+                    <div class="room-header">
+                        <span class="room-name">Smart Class A</span>
+                        <span class="room-status occupied">Occupied</span>
+                    </div>
+                    <div class="room-body">
+                        <p class="room-type">Smart Classroom</p>
+                        <p class="room-lecturer">Dr. Okon</p>
+                        <p class="room-time">Since: 9:00 AM</p>
+                        <p class="room-building">Science Complex</p>
+                    </div>
+                    <div class="room-footer">
+                        <button class="btn-secondary view-btn" data-room="Smart Class A">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Occupied Room -->
+                <div class="room-card occupied">
+                    <div class="room-header">
+                        <span class="room-name">Smart Class B</span>
+                        <span class="room-status occupied">Occupied</span>
+                    </div>
+                    <div class="room-body">
+                        <p class="room-type">Smart Classroom</p>
+                        <p class="room-lecturer">Prof. Adeyemi</p>
+                        <p class="room-time">Since: 10:30 AM</p>
+                        <p class="room-building">Science Complex</p>
+                    </div>
+                    <div class="room-footer">
+                        <button class="btn-secondary view-btn" data-room="Smart Class B">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Available Room -->
+                <div class="room-card available">
+                    <div class="room-header">
+                        <span class="room-name">Lab 1 (Networking)</span>
+                        <span class="room-status available">Available</span>
+                    </div>
+                    <div class="room-body">
+                        <p class="room-type">Computer Lab</p>
+                        <p class="room-capacity">Capacity: 40</p>
+                        <p class="room-building">Computer Lab Block</p>
+                    </div>
+                    <div class="room-footer">
+                        <button class="btn-primary scan-btn" data-room="Lab 1">Scan QR to Sign In</button>
+                    </div>
+                </div>
+
+                <!-- Available Room -->
+                <div class="room-card available">
+                    <div class="room-header">
+                        <span class="room-name">Auditorium</span>
+                        <span class="room-status available">Available</span>
+                    </div>
+                    <div class="room-body">
+                        <p class="room-type">Main Hall</p>
+                        <p class="room-capacity">Capacity: 500</p>
+                        <p class="room-building">Main Building</p>
+                    </div>
+                    <div class="room-footer">
+                        <button class="btn-primary scan-btn" data-room="Auditorium">Scan QR to Sign In</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ===== MY SESSIONS PAGE ===== -->
+        <section class="page" id="page-my-sessions">
+            
+            <div class="page-header">
+                <h2>My Active Sessions</h2>
+                <button class="btn-primary" id="scanNewBtn">Scan New Room</button>
+            </div>
+
+            <div class="sessions-grid">
+                
+                <!-- Active Session Card -->
+                <div class="session-card active">
+                    <div class="session-header">
+                        <h3>Alex O</h3>
+                        <span class="session-status">In Session</span>
+                    </div>
+                    <div class="session-body">
+                        <div class="session-info">
+                            <p><strong>Checked In:</strong> 11:00 AM</p>
+                            <p><strong>Duration:</strong> 1h 24m</p>
+                            <p><strong>Course:</strong> CSC 301 - Data Structures</p>
+                            <p><strong>Students Present:</strong> 87</p>
+                        </div>
+                        <div class="session-qr">
+                            <div class="qr-placeholder">
+                                <span class="qr-text">Session Active</span>
+                            </div>
+                            <p class="qr-desc">Physical QR scanned at door</p>
+                        </div>
+                    </div>
+                    <div class="session-footer">
+                        <button class="btn-danger end-session-btn">End Session</button>
+                    </div>
+                </div>
+
+                <!-- Active Session Card -->
+                <div class="session-card active">
+                    <div class="session-header">
+                        <h3>Lab 1 (Networking)</h3>
+                        <span class="session-status">In Session</span>
+                    </div>
+                    <div class="session-body">
+                        <div class="session-info">
+                            <p><strong>Checked In:</strong> 2:00 PM</p>
+                            <p><strong>Duration:</strong> 32m</p>
+                            <p><strong>Course:</strong> CSC 401 - Networks</p>
+                            <p><strong>Students Present:</strong> 35</p>
+                        </div>
+                        <div class="session-qr">
+                            <div class="qr-placeholder">
+                                <span class="qr-text">Session Active</span>
+                            </div>
+                            <p class="qr-desc">Physical QR scanned at door</p>
+                        </div>
+                    </div>
+                    <div class="session-footer">
+                        <button class="btn-danger end-session-btn">End Session</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ===== HISTORY PAGE ===== -->
+        <section class="page" id="page-history">
+            
+            <div class="page-header">
+                <h2>Session History</h2>
+                <div class="header-actions">
+                    <input type="date" class="date-filter" id="dateFilter">
+                </div>
+            </div>
+
+            <div class="history-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Venue</th>
+                            <th>Lecturer</th>
+                            <th>Course</th>
+                            <th>Check-In</th>
+                            <th>Check-Out</th>
+                            <th>Duration</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>26 Mar 2026</td>
+                            <td>Alex O</td>
+                            <td>Dr Omulabu</td>
+                            <td>CSC 301</td>
+                            <td>9:00 AM</td>
+                            <td>10:30 AM</td>
+                            <td>1h 30m</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>26 Mar 2026</td>
+                            <td>Smart Class A</td>
+                            <td>Dr Adedeji</td>
+                            <td>CSC 401</td>
+                            <td>11:00 AM</td>
+                            <td>12:30 PM</td>
+                            <td>1h 30m</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>25 Mar 2026</td>
+                            <td>Cepep Hall</td>
+                            <td>Dr Usman</td>
+                            <td>CSC 201</td>
+                            <td>8:00 AM</td>
+                            <td>9:30 AM</td>
+                            <td>1h 30m</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>25 Mar 2026</td>
+                            <td>Lab 1</td>
+                            <td>Mrs Kareem</td>
+                            <td>CSC 101</td>
+                            <td>2:00 PM</td>
+                            <td>3:30 PM</td>
+                            <td>1h 30m</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>24 Mar 2026</td>
+                            <td>Auditorium</td>
+                            <td>Dr Akanbi</td>
+                            <td>CSC 301</td>
+                            <td>10:00 AM</td>
+                            <td>11:30 AM</td>
+                            <td>1h 30m</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== MODALS ===== -->
+
+    <!-- Scan QR Modal (Physical QR) -->
+    <div class="modal" id="scanQRModal">
+        <div class="modal-content scan-qr-modal">
+            <button class="modal-close" id="scanQRModalClose">&times;</button>
+            <div class="scan-qr-content">
+                <div class="qr-scanner-view">
+                </div>
+                <h3>Scan Room QR Code</h3>
+                <p class="scan-instruction">Point your camera at the QR code on the room door</p>
+                <button class="btn-primary" id="simulateScan">Simulate Scan (Demo)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scan Success Modal -->
+    <div class="modal" id="scanSuccessModal">
+        <div class="modal-content success-modal">
+            <button class="modal-close" id="scanSuccessModalClose">&times;</button>
+            <div class="success-content">
+                <div class="success-indicator"></div>
+                <h3>Check-In Successful</h3>
+                <div class="success-info">
+                    <div class="info-row">
+                        <span class="info-label">Room:</span>
+                        <span class="info-value" id="successRoom">Alex O</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Time:</span>
+                        <span class="info-value" id="successTime">11:00 AM</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value occupied">Occupied</span>
+                    </div>
+                </div>
+                <p class="success-footer">Remember to end session when done</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Session Modal (Student View) -->
+    <div class="modal" id="viewSessionModal">
+        <div class="modal-content view-modal">
+            <button class="modal-close" id="viewSessionModalClose">&times;</button>
+            <div class="view-content">
+                <div class="status-indicator occupied"></div>
+                <h2>Session In Progress</h2>
+                <div class="view-info">
+                    <div class="info-row">
+                        <span class="info-label">Lecturer:</span>
+                        <span class="info-value">Dr. Okon</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Venue:</span>
+                        <span class="info-value">Smart Class A</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Course:</span>
+                        <span class="info-value">CSC 401 - Algorithms</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Check-In:</span>
+                        <span class="info-value">9:00 AM</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Duration:</span>
+                        <span class="info-value">1h 24m</span>
+                    </div>
+                </div>
+                <p class="view-footer">This room is currently occupied</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
